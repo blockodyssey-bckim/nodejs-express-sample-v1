@@ -18,3 +18,11 @@ script: './bin/www',
 # nodemon
 npm i nodemon -D  
 "start": "nodemon ./bin/www"
+
+# config & env
+"start": "NODE_ENV=development DEBUG=app:* nodemon ./bin/www"  
+set env.json on config
+
+# dubug
+set log prifix to config 
+
