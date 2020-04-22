@@ -15,4 +15,6 @@ vscode
 pm2 init|ecosystme [null|simple]  
 script: './bin/www',  
 
-
+# nodemon
+npm i nodemon -D  
+"start": "nodemon ./bin/www"
