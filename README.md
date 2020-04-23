@@ -26,3 +26,5 @@ set env.json on config
 # dubug
 set log prifix to config 
 
+# set log file
+npm i rotating-file-stream  

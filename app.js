@@ -7,7 +7,25 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var rfs = require('rotating-file-stream')
+
 var app = express();
+
+// env log
+if(process.env.NODE_ENV == 'development') {
+  log.info('NODE_ENV[development], env[',app.get('env'))
+} else if(process.env.NODE_ENV == 'production') {
+  log.info('NODE_ENV[production] env[',app.get('env'))
+} else {
+  log.info('NODE_ENV[' + process.env.NODE_ENV)
+}
+
+// create a rotating write stream
+var accessLogStream = rfs.createStream('access.log', {
+  interval: '1d', // rotate daily
+  path: path.join(__dirname, 'log')
+})
+//app.use(logger('dev', { stream: accessLogStream }))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
